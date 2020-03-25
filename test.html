@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GitGo</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
+
+
+    <!-- for terminal -->
+    <script src="jquery-3.4.1.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.1.0/js/jquery.terminal.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.1.0/css/jquery.terminal.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- terminal end -->
+
+
+    <!-- Google map -->
+    <script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4BZrQ7ERPcM8urIi17IvrJ_JSN3QeJes"></script>
+          <script src="https://unpkg.com/location-picker/dist/location-picker.min.js"></script>
+          <!--Google map end  -->
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.1.0/js/jquery.terminal.min.js"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.terminal/1.1.0/css/jquery.terminal.min.css" rel="stylesheet"/>
+
+
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+    <!--CSS  -->
+    <link rel="stylesheet" href="src/css/style.css">
+    <style>
+      .maincard {
+        width: 25rem;
+        margin-left: 3rem;
+        position: absolute;
+      }
+      .card-img-top {
+        width: 30%;
+        height: 30%;
+        position: relative;
+        left: 8rem;
+        top: 50px;
+        object-fit: cover;
+      }
+      .shell {
+        width: 30%;
+        height: 80%;
+      }
+      .terminal {
+        --color: #000;
+        --font-family: Monaco, monospace;
+        --font-weight: 400;
+        --font-size: 12pt;
+        --display: block;
+        --line-height: 1.2em;
+        --overflow-y: scroll;
+        --position: relative;
+        --background: #e6e6e6;
+        --animation: terminal-bar;
+      }
+      .map {
+        width: 70%;
+        height: 80%;
+      }
+    </style>
+    <!-- CSS end Here -->
+  </head>
+
+  <body>
+    <div class="main_body">
+      <div id="map"></div>
+<br>
+
+<div class="card fixed maincard" style="width: 25rem;">
+  <img class="card-img-top" src="src/images/logo_top.png" alt="Card image cap">
+  <div class="card-body">
+    <br>
+    <br>
+    <br>
+    <h5 class="card-title">Welcome, DEV#123</h5>
+    <p class="card-text">GitGo aims to map developers, hackers and makers from around the world. <br><br>
+    Are you a developer? Join the tribe!</p>
+    <!-- Terminal start -->
+    <div class="terminal">
+      <div id="term_demo"></div>
+      
+    </div>
+    <!-- Terminal Error -->
+    <br>
+    <button id = "find-me" class="btn btn-primary" onclick="getLocation()">Show my approximate location</button><br/>
+    <p id="demo"></p>
+    <br>
+    <a id = "map-link" target="_blank"></a>
+    <button id="confirmPosition" class="btn btn-primary" onclick="">Confirm Position</button>
+  </div>
+</div>
+
+<br>
+<p>On idle position: <span id="onIdlePositionView"></span></p>
+        
+</div>
+</div>
+    <script>
+         jQuery(function($, undefined) {
+        $('#terminal').terminal({
+   name: function(name) {
+      this.read('last name: ', last_name => {
+         this.echo('Your name is ' + name + ' ' + last_name);
+      });
+   }
+}), {
+            greetings:
+              "Hi developers. want help any time just type help",
+            name: "gitgo$",
+            prompt: "gitgo$ ",
+            color: "black"
+          }
+         });
+    </script>
+  </body>
+</html>
